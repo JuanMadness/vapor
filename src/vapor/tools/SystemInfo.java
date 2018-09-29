@@ -7,11 +7,24 @@ public class SystemInfo {
 
     String systemOS;
 
-    public SystemInfo() {
+    //os
+    public static String OS_WINDOWS = "windows";
+    public static String OS_LINUX = "linux";
 
+    public SystemInfo() {
+        setSystemOS();
     }
 
     public String getSystemOS() {
         return systemOS;
+    }
+
+    private void setSystemOS() {
+        String tOS = System.getProperty("os.name");
+        if (tOS.contains("windows")) {
+            systemOS = OS_WINDOWS;
+        } else if (tOS.contains("linux")) {
+            systemOS = OS_LINUX;
+        }
     }
 }
