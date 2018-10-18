@@ -4,19 +4,18 @@ import vapor.entities.Game;
 import vapor.entities.SteamLibrary;
 import vapor.tools.Sdout;
 import vapor.tools.SteamUtility;
-import vapor.tools.SystemInfo;
-
-import java.util.List;
 
 public class CommandLineLogic {
 
-    SystemInfo systemInfo;
+    private AppData tAppdata;
 
     public CommandLineLogic() {
         //init
-        systemInfo = new SystemInfo();
+        tAppdata = AppData.getInstance();
         Sdout.isDebugEnabled = false;
 
+        //scanning local libs
+        tAppdata.setLocalSteamLibraries(SteamUtility.getSteamLibraries());
         //weitere logik
         //SteamCmdUtility.textSteamCmd();
         //SteamCmdUtility.updateAllGames(SteamUtility.getSteamLibraries());
@@ -25,15 +24,14 @@ public class CommandLineLogic {
     }
 
     public void printAllLibs() {
-        List<SteamLibrary> tSteamLibs = SteamUtility.getSteamLibraries();
-
-        for (SteamLibrary tLib : tSteamLibs) {
+        for (SteamLibrary tLib : tAppdata.getLocalSteamLibraries()) {
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
             System.out.println(tLib.getPath());
             for (Game tGame : tLib.getGames()) {
                 System.out.printf("%-50s %-10s%n", tGame.getName(), tGame.getAppID());
             }
         }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
     }
 
 }
