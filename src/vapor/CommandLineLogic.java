@@ -5,6 +5,8 @@ import vapor.entities.SteamLibrary;
 import vapor.tools.Sdout;
 import vapor.tools.SteamUtility;
 
+import java.util.Scanner;
+
 public class CommandLineLogic {
 
     private AppData tAppdata;
@@ -16,14 +18,32 @@ public class CommandLineLogic {
 
         //scanning local libs
         tAppdata.setLocalSteamLibraries(SteamUtility.getSteamLibraries());
-        //weitere logik
-        //SteamCmdUtility.textSteamCmd();
-        //SteamCmdUtility.updateAllGames(SteamUtility.getSteamLibraries());
 
-        printAllLibs();
+        boolean doMenu = true;
+        Scanner tScanner = new Scanner(System.in);
+
+        //menu loop
+        while (doMenu) {
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("1.PrintAllGames");
+            System.out.println("2.Exit");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+            String input = tScanner.next();
+            switch (input) {
+                case "1":
+                    printAllLibs();
+                    break;
+                case "2":
+                    doMenu = false;
+                    break;
+            }
+
+        }
+        tScanner.close();
     }
 
-    public void printAllLibs() {
+    private void printAllLibs() {
         for (SteamLibrary tLib : tAppdata.getLocalSteamLibraries()) {
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
             System.out.println(tLib.getPath());
