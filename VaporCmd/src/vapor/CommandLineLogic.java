@@ -1,9 +1,9 @@
 package vapor;
 
+import vapor.VaporAddOns.VaporPrintLibs;
 import vapor.tools.Sdout;
 import vapor.tools.SteamUtility;
-import vaporSDK.entities.Game;
-import vaporSDK.entities.SteamLibrary;
+import vaporSDK.VaporAddOn;
 
 import java.util.Scanner;
 
@@ -32,7 +32,9 @@ public class CommandLineLogic {
             String input = tScanner.next();
             switch (input) {
                 case "1":
-                    printAllLibs();
+                    VaporAddOn vaporRead = new VaporPrintLibs();
+                    vaporRead.setVaporCoreData(tAppdata);
+                    vaporRead.runAddOn();
                     break;
                 case "2":
                     doMenu = false;
@@ -41,17 +43,6 @@ public class CommandLineLogic {
 
         }
         tScanner.close();
-    }
-
-    private void printAllLibs() {
-        for (SteamLibrary tLib : tAppdata.getLocalSteamLibraries()) {
-            System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
-            System.out.println(tLib.getPath());
-            for (Game tGame : tLib.getGames()) {
-                System.out.printf("%-50s %-10s%n", tGame.getName(), tGame.getAppID());
-            }
-        }
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
     }
 
 }

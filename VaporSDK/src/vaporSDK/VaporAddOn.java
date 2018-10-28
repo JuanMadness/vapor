@@ -4,7 +4,7 @@ public interface VaporAddOn {
 
     public final String vaporSDKVersion = "0.2";
 
-    public void setVaporCoreData(VaporCoreData pVaporCoreData);
+    public void setVaporCoreData(VaporCoreData vaporCoreData);
 
     public String getAddOnName();
 
