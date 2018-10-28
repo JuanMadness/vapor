@@ -2,9 +2,11 @@ package vaporSDK;
 
 public interface VaporAddOn {
 
-    public final String vaporSDKVersion = "0.2";
+    public static final String vaporSDKVersion = "0.2";
 
     public void setVaporCoreData(VaporCoreData vaporCoreData);
+
+    public String getVaporSDKVersion();
 
     public String getAddOnName();
 

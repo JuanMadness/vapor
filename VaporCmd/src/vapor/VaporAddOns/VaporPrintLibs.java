@@ -16,6 +16,11 @@ public class VaporPrintLibs implements VaporAddOn {
     }
 
     @Override
+    public String getVaporSDKVersion() {
+        return VaporAddOn.vaporSDKVersion;
+    }
+
+    @Override
     public String getAddOnName() {
         return "VaporPrintLibs";
     }
