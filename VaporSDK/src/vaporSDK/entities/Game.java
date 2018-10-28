@@ -1,4 +1,4 @@
-package vapor.entities;
+package vaporSDK.entities;
 
 public class Game {
 

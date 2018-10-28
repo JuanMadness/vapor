@@ -1,4 +1,4 @@
-package vapor.entities;
+package vaporSDK.entities;
 
 import java.util.List;
 

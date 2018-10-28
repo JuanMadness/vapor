@@ -1,9 +1,9 @@
 package vapor;
 
-import vapor.entities.Game;
-import vapor.entities.SteamLibrary;
 import vapor.tools.Sdout;
 import vapor.tools.SteamUtility;
+import vaporSDK.entities.Game;
+import vaporSDK.entities.SteamLibrary;
 
 import java.util.Scanner;
 

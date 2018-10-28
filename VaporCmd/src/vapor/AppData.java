@@ -1,10 +1,11 @@
 package vapor;
 
-import vapor.entities.SteamLibrary;
+import vaporSDK.VaporCoreData;
+import vaporSDK.entities.SteamLibrary;
 
 import java.util.List;
 
-public class AppData {
+public class AppData implements VaporCoreData {
 
     private static AppData appData = new AppData();
 

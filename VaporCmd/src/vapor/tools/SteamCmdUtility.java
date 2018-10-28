@@ -1,7 +1,7 @@
 package vapor.tools;
 
-import vapor.entities.Game;
-import vapor.entities.SteamLibrary;
+import vaporSDK.entities.Game;
+import vaporSDK.entities.SteamLibrary;
 
 import java.io.IOException;
 import java.util.ArrayList;
