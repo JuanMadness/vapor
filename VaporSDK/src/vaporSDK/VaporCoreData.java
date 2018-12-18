@@ -1,14 +1,8 @@
 package vaporSDK;
 
-import vaporSDK.entities.SteamLibrary;
-
-import java.util.List;
+import java.util.HashMap;
 
 public interface VaporCoreData {
 
-    public String getOs();
-
-    public List<SteamLibrary> getLocalSteamLibraries();
-
-    public void setLocalSteamLibraries(List<SteamLibrary> localSteamLibraries);
+    public HashMap<String, Object> getVaporCoreData();
 }

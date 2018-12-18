@@ -1,16 +1,15 @@
 package vapor;
 
 import vaporSDK.VaporCoreData;
-import vaporSDK.entities.SteamLibrary;
 
-import java.util.List;
+import java.util.HashMap;
 
 public class AppData implements VaporCoreData {
 
     private static AppData appData = new AppData();
+    private static HashMap<String, Object> vaporCoreData = new HashMap<>();
 
     private String os;
-    private List<SteamLibrary> localSteamLibraries;
 
     public static String OS_WINDOWS = "windows";
     public static String OS_LINUX = "linux";
@@ -35,11 +34,9 @@ public class AppData implements VaporCoreData {
         return os;
     }
 
-    public List<SteamLibrary> getLocalSteamLibraries() {
-        return localSteamLibraries;
-    }
 
-    public void setLocalSteamLibraries(List<SteamLibrary> localSteamLibraries) {
-        this.localSteamLibraries = localSteamLibraries;
+    @Override
+    public HashMap<String, Object> getVaporCoreData() {
+        return vaporCoreData;
     }
 }

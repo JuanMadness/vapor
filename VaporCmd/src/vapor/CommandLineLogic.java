@@ -4,6 +4,7 @@ import vapor.VaporAddOns.VaporPrintLibs;
 import vapor.tools.Sdout;
 import vapor.tools.SteamUtility;
 import vaporSDK.VaporAddOn;
+import vaporSDK.VaporCoreDataKeys;
 
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class CommandLineLogic {
         Sdout.isDebugEnabled = false;
 
         //scanning local libs
-        tAppdata.setLocalSteamLibraries(SteamUtility.getSteamLibraries());
+        tAppdata.getVaporCoreData().put(VaporCoreDataKeys.LOCAL_STEAM_LIBS, SteamUtility.getSteamLibraries());
 
         boolean doMenu = true;
         Scanner tScanner = new Scanner(System.in);

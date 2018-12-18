@@ -2,8 +2,11 @@ package vapor.VaporAddOns;
 
 import vaporSDK.VaporAddOn;
 import vaporSDK.VaporCoreData;
+import vaporSDK.VaporCoreDataKeys;
 import vaporSDK.entities.Game;
 import vaporSDK.entities.SteamLibrary;
+
+import java.util.List;
 
 public class VaporPrintLibs implements VaporAddOn {
 
@@ -39,7 +42,7 @@ public class VaporPrintLibs implements VaporAddOn {
 
     @Override
     public int runAddOn() {
-        for (SteamLibrary tLib : vaporCoreData.getLocalSteamLibraries()) {
+        for (SteamLibrary tLib : (List<SteamLibrary>) vaporCoreData.getVaporCoreData().get(VaporCoreDataKeys.LOCAL_STEAM_LIBS)) {
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
             System.out.println(tLib.getPath());
             for (Game tGame : tLib.getGames()) {
