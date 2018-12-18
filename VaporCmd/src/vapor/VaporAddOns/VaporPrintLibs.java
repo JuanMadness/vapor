@@ -1,8 +1,8 @@
 package vapor.VaporAddOns;
 
+import vapor.VaporCoreDataKeys;
 import vaporSDK.VaporAddOn;
 import vaporSDK.VaporCoreData;
-import vaporSDK.VaporCoreDataKeys;
 import vaporSDK.entities.Game;
 import vaporSDK.entities.SteamLibrary;
 

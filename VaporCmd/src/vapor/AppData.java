@@ -1,13 +1,18 @@
 package vapor;
 
+import vapor.VaporAddOns.VaporPrintLibs;
+import vaporSDK.VaporAddOn;
 import vaporSDK.VaporCoreData;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class AppData implements VaporCoreData {
 
     private static AppData appData = new AppData();
     private static HashMap<String, Object> vaporCoreData = new HashMap<>();
+    private static List<VaporAddOn> vaporAddOns = new ArrayList<>();
 
     private String os;
 
@@ -32,6 +37,16 @@ public class AppData implements VaporCoreData {
 
     public String getOs() {
         return os;
+    }
+
+
+
+    public List<VaporAddOn> getVaporAddOns() {
+        /**
+         * Add new VaporAddOns here
+         */
+        vaporAddOns.add(new VaporPrintLibs());
+        return vaporAddOns;
     }
 
 
