@@ -10,14 +10,6 @@ import java.util.List;
 
 public class VaporPrintLibs implements VaporAddOn {
 
-    private VaporCoreData vaporCoreData;
-
-
-    @Override
-    public void setVaporCoreData(VaporCoreData vaporCoreData) {
-        this.vaporCoreData = vaporCoreData;
-    }
-
     @Override
     public String getVaporSDKVersion() {
         return VaporAddOn.vaporSDKVersion;
@@ -41,7 +33,9 @@ public class VaporPrintLibs implements VaporAddOn {
     }
 
     @Override
-    public int runAddOn() {
+    public int runAddOn(VaporCoreData vaporCoreData) {
+        if (!vaporCoreData.getVaporCoreData().containsKey(VaporCoreDataKeys.LOCAL_STEAM_LIBS)) return 1;
+
         for (SteamLibrary tLib : (List<SteamLibrary>) vaporCoreData.getVaporCoreData().get(VaporCoreDataKeys.LOCAL_STEAM_LIBS)) {
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
             System.out.println(tLib.getPath());

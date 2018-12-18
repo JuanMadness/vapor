@@ -42,6 +42,7 @@ public class AppData implements VaporCoreData {
 
 
     public List<VaporAddOn> getVaporAddOns() {
+        vaporAddOns.clear();
         /**
          * Add new VaporAddOns here
          */
