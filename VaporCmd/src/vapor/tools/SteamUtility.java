@@ -16,6 +16,10 @@ public class SteamUtility {
     private static String DEFAULT_STEAMPATH_LINUX = "";
 
 
+
+    /**
+     * Returns a list of SteamLibs
+     */
     public static List<SteamLibrary> getSteamLibraries() {
         List<String> tSteamLibPaths = getSteamLibPaths();
         if (tSteamLibPaths == null) {
@@ -31,6 +35,11 @@ public class SteamUtility {
         return tSteamLibs;
     }
 
+
+
+    /**
+     * Reads the libraryfolders.vdf in your default SteamLib and returns a list of SteamLib-Paths
+     */
     private static List<String> getSteamLibPaths() {
         Sdout.info("Reading paths of steamLibs...");
         try {
@@ -66,6 +75,11 @@ public class SteamUtility {
         return null;
     }
 
+
+
+    /**
+     * Returns a list of games in the given SteamLib-Path
+     */
     private static List<Game> getGamesFromLib(String pPath) {
         Sdout.info("Reading games from " + pPath);
         pPath = pPath + "\\steamapps";
