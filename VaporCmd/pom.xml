@@ -7,8 +7,9 @@
     <parent>
         <groupId>jm.vapor</groupId>
         <artifactId>vapor</artifactId>
-        <version>0.3-SNAPSHOT</version>
+        <version>0.3</version>
     </parent>
+
 
     <groupId>jm.vapor</groupId>
     <artifactId>vaporCMD</artifactId>
@@ -20,9 +21,10 @@
         <dependency>
             <groupId>jm.vapor</groupId>
             <artifactId>vaporSDK</artifactId>
-            <version>0.3</version>
+            <version>LATEST</version>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
@@ -39,9 +41,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 
 
 </project>
