@@ -22,13 +22,14 @@ public class VaporPrintLibs implements VaporAddOn {
 
     @Override
     public String getAddOnVersion() {
-        return "1.0";
+        return "1.0.1";
     }
 
     @Override
     public String[] getAddOnOSSupport() {
         String[] tSupportedOs = new String[1];
         tSupportedOs[0] = "windows";
+        tSupportedOs[1] = "linux";
         return tSupportedOs;
     }
 
